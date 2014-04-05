@@ -3,7 +3,7 @@
 import subprocess
 import json
 
-RULE_TESTER = 'rule_tester'
+RULE_TESTER = 'cavalieri_tester'
 
 def run_events(events, rules_dir):
 
