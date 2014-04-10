@@ -4,14 +4,6 @@
 
 streams_t* rules() {
 
-  auto mail_stream = email("localhost", "cavalieri@localhost",
-                           "devops@localhost");
+  return new streams_t(send_index());
 
-  auto s =  where(service_pred("requests_rate"))
-              >> above(40)
-                >> with({{"state", "critical"}})
-                  >> changed_state("ok")
-                    >>  mail_stream;
-
-  return new streams_t(s);
 }
