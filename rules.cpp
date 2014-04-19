@@ -7,9 +7,9 @@ streams_t* rules() {
   auto mail_stream = email("localhost", "cavalieri@localhost",
                            "devops@localhost");
 
-  auto s =  where(service_pred("requests_rate"))
+  auto s = service("requests_rate")
               >> above(40)
-                >> with({{"state", "critical"}})
+                >> set_state("critical")
                   >> changed_state("ok")
                     >>  mail_stream;
 
