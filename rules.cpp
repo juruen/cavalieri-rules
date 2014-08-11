@@ -1,6 +1,6 @@
 #include <rules.h>
 
-streams_t* rules() {
+streams_t cavalieri_rules() {
 
   auto mail_stream = email("localhost", "cavalieri@localhost",
                            "devops@localhost");
@@ -11,5 +11,7 @@ streams_t* rules() {
                   >> changed_state("ok")
                     >>  mail_stream;
 
-  return new streams_t(s);
+  return s;
 }
+
+EXPORT_RULES(cavalieri_rules);
